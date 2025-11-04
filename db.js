@@ -2,7 +2,6 @@ import { openDatabaseAsync } from "expo-sqlite";
 
 let db;
 
-// Inicializa la base de datos y crea la tabla
 export const initDB = async () => {
   db = await openDatabaseAsync("tp2crud.db");
   await db.execAsync(`
@@ -16,14 +15,12 @@ export const initDB = async () => {
   console.log("📀 Base de datos lista");
 };
 
-// Obtener todas las películas
 export const getPeliculas = async () => {
   if (!db) db = await openDatabaseAsync("tp2crud.db");
   const result = await db.getAllAsync("SELECT * FROM peliculas");
   return result;
 };
 
-// Agregar película
 export const addPelicula = async (titulo, genero, anio) => {
   if (!db) db = await openDatabaseAsync("tp2crud.db");
   await db.runAsync(
@@ -32,7 +29,6 @@ export const addPelicula = async (titulo, genero, anio) => {
   );
 };
 
-// Actualizar película
 export const updatePelicula = async (id, titulo, genero, anio) => {
   if (!db) db = await openDatabaseAsync("tp2crud.db");
   await db.runAsync(
@@ -41,7 +37,6 @@ export const updatePelicula = async (id, titulo, genero, anio) => {
   );
 };
 
-// Eliminar película
 export const deletePelicula = async (id) => {
   if (!db) db = await openDatabaseAsync("tp2crud.db");
   await db.runAsync("DELETE FROM peliculas WHERE id=?", [id]);

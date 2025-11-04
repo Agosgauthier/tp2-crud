@@ -4,12 +4,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
 import FormScreen from "./screens/FormScreen";
-import { initDB } from "./db"; // 👈 importá la base de datos
+import { initDB } from "./db"; 
 
 const Stack = createStackNavigator();
 
 export default function App() {
-  // Al iniciar la app, se crea la base de datos si no existe
   useEffect(() => {
     const startDB = async () => {
       try {

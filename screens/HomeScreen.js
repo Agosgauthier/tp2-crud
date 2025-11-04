@@ -31,7 +31,6 @@ export default function HomeScreen() {
     ]);
   };
 
-  // Filtrar resultados por texto de búsqueda
   const peliculasFiltradas = peliculas.filter(p =>
     p.titulo.toLowerCase().includes(busqueda.toLowerCase())
   );
